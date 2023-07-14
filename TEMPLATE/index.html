@@ -40,24 +40,21 @@
         font-size: 16px;
         line-height: 1;
         background-color: rgb(249, 241, 230);
-        overflow: hidden;
         }
         #template {
-            --row :36px;
+            --row :48px;
             --col_1 :129px;
             --col :102px;
             flex-grow: 1;
             padding: 0.4rem 0;
             display: grid;
             grid-gap: 4px;
-            grid-template-rows: var(--row) var(--col_1) var(--row) var(--col) var(--row) var(--col) var(--row) var(--col);
+            grid-template-rows: var(--row) 1fr var(--row) 1fr var(--row) 1fr;
             grid-template-areas: 
             "row_1 row_1 row_1"
             "col_11 col_12 col_13"
             "row_2 row_2 row_2"
             "col_21 col_22 col_23"
-            "row_3 row_3 row_3"
-            "col_31 col_32 col_33"
             "row_4 row_4 row_4"
             "col_41 col_42 col_43";
         }
@@ -181,26 +178,20 @@
                 </span>
                 <div class="content_content">
                     <center>
+                        <div style="padding-top: 12px;"></div>
                         <span>
                             Trạng thái:
                         </span>
                         <span id="state_door">
                             Đóng
                         </span>
-                        <br/>
+                        <div style="padding-top: 12px;"></div>
                         <span>
                             Cảnh báo:
                         </span>
                         <span id="warming_door">
                             An toàn
                         </span>
-                        <br/>
-                        <div id="close_door" class="btn">
-                            Đóng cửa
-                        </div>
-                        <div id="open_door" class="btn">
-                            Mở cửa
-                        </div>
                     </center>
                 </div>
             </div>
@@ -237,20 +228,6 @@
                                 | Nhấn:
                             </span>
                             <div id="control_light_2" style="display: inline-block;" class="btn">
-                                OFF
-                            </div>
-                        </div>
-                        <div>
-                            <span>
-                                Đèn 3:
-                            </span>
-                            <span id="state_light_3">
-                                ON
-                            </span>
-                            <span>
-                                | Nhấn:
-                            </span>
-                            <div id="control_light_3" style="display: inline-block;" class="btn">
                                 OFF
                             </div>
                         </div>
@@ -327,20 +304,21 @@
                 </span>
                 <div class="content_content">
                     <center>
+                        <div style="padding-top: 12px;"></div>
                         <span>
                             Chế độ: 
                         </span>
                         <span id="state_mode_curtain_livingroom">
                             Auto
                         </span>
-                        <br/>
+                        <div style="padding-top: 12px;"></div>
                         <span>
                             Trạng thái:
                         </span>
                         <span id="state_curtain_livingroom">
                             OFF
                         </span>
-                        <br/>
+                        <div style="padding-top: 8px;"></div>
                         <span>
                             Nhấn:
                         </span>
@@ -353,16 +331,11 @@
             <div class="template_content_6">
                 <span class="content_title">
                     <center style="font-size: 20px; padding: 4px 0">
-                        Nhiệt độ
+                        Quạt và Máy lạnh
                     </center>
                 </span>
                 <div class="content_content">
                     <center style="flex-direction: column;">
-                        <div>
-                            <span id="temperature_livingroom">20</span>
-                            <span style="width:4px"></span>
-                            <span>oC</span>
-                        </div>
                         <div>
                             <span> Quạt: </span>
                             <span id="state_fan_livingroom">OFF</span>
@@ -374,91 +347,6 @@
                             <span id="state_air-conditioner_livingroom">OFF</span>
                             <span>| Nhấn:</span>
                             <div class="btn" id="control_air-conditioner_livingroom" style="display: inline-block;">ON</div>
-                        </div>
-                    </center>
-                </div>
-            </div>
-            <div class="template_header_3">
-                <h3 style="height: 100%; width:100%;">
-                    <center style="height: 100%; line-height: var(--row); font-size: 1.4rem;">
-                        Phòng ngủ
-                    </center>
-                </h3>
-            </div>
-            <div class="template_content_7">
-                <span class="content_title">
-                    <center style="font-size: 20px; padding: 4px 0">
-                        Đèn
-                    </center>
-                </span>
-                <div class="content_content">
-                    <center>
-                        <div>
-                            <span>
-                                Đèn:
-                            </span>
-                            <span id="state_light_bedroom">
-                                ON
-                            </span>
-                            <span>
-                                | Nhấn:
-                            </span>
-                            <div id="control_light_bedroom" style="display: inline-block;" class="btn">
-                                OFF
-                            </div>
-                        </div>
-                    </center>
-                </div>
-            </div>
-            <div class="template_content_8">
-                <span class="content_title">
-                    <center style="font-size: 20px; padding: 4px 0">
-                        Rèm cửa sổ
-                    </center>
-                </span>
-                <div class="content_content">
-                    <center>
-                        <span>
-                            Chế độ: 
-                        </span>
-                        <span id="state_mode_curtain_bedroom">
-                            Auto
-                        </span>
-                        <br/>
-                        <span>
-                            Trạng thái:
-                        </span>
-                        <span id="state_curtain_bedroom">
-                            OFF
-                        </span>
-                        <br/>
-                        <span>
-                            Nhấn:
-                        </span>
-                        <div id="control_curtain_bedroom" style="display: inline-block;" class="btn">
-                            OFF
-                        </div>
-                    </center>
-                </div>
-            </div>
-            <div class="template_content_9">
-                <span class="content_title">
-                    <center style="font-size: 20px; padding: 4px 0">
-                        Nhiệt độ
-                    </center>
-                </span>
-                <div class="content_content">
-                    <center style="flex-direction: column;">
-                        <div>
-                            <span id="temperature_bedroom">20</span>
-                            <span style="width:4px"></span>
-                            <span>oC</span>
-                        </div>
-                        <div>
-                            <span> Máy lạnh: </span>
-                            <span id="state_air-conditioner_bedroom">OFF</span>
-                            <span>| Nhấn:</span>
-                            <div class="btn" id="control_air-conditioner_bedroom" style="display: inline-block;">ON</div>
                         </div>
                     </center>
                 </div>
@@ -524,12 +412,13 @@
                             <span style="width:4px"></span>
                             <span>oC</span>
                         </div>
+                        <div style="padding-top: 12px;"></div>
                         <div>
                             <span>Gas: </span>
                             <span id="gas_kitchen">40</span>
                             <span style="width:4px"></span>
                             <span>%</span>
-                            <br/>
+                            <div style="padding-top: 12px;"></div>
                             <span>
                                 TT Quạt Gas:
                             </span>
@@ -548,38 +437,76 @@
         </center>
     </footer>
     <script>
-        const URL = "192.168.6.1/"
-        window.addEventListener("load",()=>{
-            console.log("hello")
-            // Create a new XMLHttpRequest object
+        function sendRequest() {
+            let URL = window.location
             var xhr = new XMLHttpRequest();
-
-            // Set up the request
-            xhr.open('GET', 'https://gorest.co.in/public/v2/users', true);
-
-            // Optional: Set request headers
+            xhr.open('GET', URL+"getState", true);
             xhr.setRequestHeader('Content-Type', 'application/json');
-
-            // Optional: Set up event handlers for response handling
             xhr.onload = function() {
-            if (xhr.status === 200) {
-                // Request was successful
-                var response = JSON.parse(xhr.responseText);
-                console.log(response);
-            } else {
-                // Request failed
-                console.log('Request failed. Status:', xhr.status);
-            }
+                if (xhr.status === 200) {
+                    var response = JSON.parse(JSON.stringify(xhr.responseText));
+                    console.log(response);
+                } else {
+                    console.log('Request failed. Status:', xhr.status);
+                }
             };
-
             xhr.onerror = function() {
-            // There was a network error
-            console.log('Network error.');
+                console.log('Network error.');
             };
-
-            // Send the request
             xhr.send();
+        }
+        var interval = setInterval(sendRequest, 8000);
+
+        document.getElementById("control_light_1").addEventListener("click",()=>{
+            (document.getElementById("control_light_1").innerText == "OFF") ?
+            control("control/outside/light_1/ON") : control("control/outside/light_1/OFF");
         })
+        document.getElementById("control_light_2").addEventListener("click",()=>{
+            (document.getElementById("control_light_2").innerText == "OFF") ?
+            control("control/outside/light_2/ON") : control("control/outside/light_2/OFF");
+        })
+        document.getElementById("control_light_livingroom").addEventListener("click",()=>{
+            (document.getElementById("control_light_livingroom").innerText == "OFF") ?
+            control("control/livingroom/light/ON") : control("control/livingroom/light/OFF");
+        })
+        document.getElementById("control_curtain_livingroom").addEventListener("click",()=>{
+            (document.getElementById("control_curtain_livingroom").innerText == "OFF") ?
+            control("control/livingroom/curtain/ON") : control("control/livingroom/curtain/OFF");
+        })
+        document.getElementById("control_fan_livingroom").addEventListener("click",()=>{
+            (document.getElementById("control_fan_livingroom").innerText == "OFF") ?
+            control("control/livingroom/fan/ON") : control("control/livingroom/fan/OFF");
+        })
+        document.getElementById("control_air-conditioner_livingroom").addEventListener("click",()=>{
+            (document.getElementById("control_air-conditioner_livingroom").innerText == "OFF") ?
+            control("control/livingroom/air_conditioner/ON") : control("control/livingroom/air_conditioner/OFF");
+        })
+        document.getElementById("control_light_kitchen").addEventListener("click",()=>{
+            (document.getElementById("control_light_kitchen").innerText == "OFF") ?
+            control("control/kitchen/light/ON") : control("control/kitchen/light/OFF");
+        })
+        document.getElementById("control_fan_kitchen").addEventListener("click",()=>{
+            (document.getElementById("control_fan_kitchen").innerText == "OFF") ?
+            control("control/kitchen/fan/ON") : control("control/kitchen/fan/OFF");
+        })
+        var control = (adrr)=>{
+            let URL = window.location
+            var xhr = new XMLHttpRequest();
+                xhr.open('GET', URL+adrr, true);
+                xhr.setRequestHeader('Content-Type', 'text/plain');
+                xhr.onload = function() {
+                if (xhr.status === 200) {
+                    var response = xhr.responseText;
+                    console.log(response);
+                } else {
+                    console.log('Request failed. Status:', xhr.status);
+                }
+            };
+            xhr.onerror = function() {
+                console.log('Network error.');
+            };
+            xhr.send();
+        }
     </script>
 </body>
 </html>

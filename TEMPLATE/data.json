@@ -1,0 +1,28 @@
+{
+    "outDoor":{
+        "door":{
+            "state":"done",
+            "warming":"no-warming"
+        },
+        "lightGarden":{
+            "light1":"ON",
+            "light2":"ON"
+        },
+        "temperature": 1,
+        "humidity":1
+    },
+    "livingRoom":{
+        "light":"ON",
+        "curtain":"ON",
+        "fan":"ON",
+        "airConditioner":"ON"
+    },
+    "kitchen":{
+        "light":"ON",
+        "temperature": 1,
+        "gas":1,
+        "fan":"ON",
+        "stateFanGas":"ON"
+    }
+    
+}
