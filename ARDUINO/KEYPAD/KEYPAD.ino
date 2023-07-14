@@ -1,3 +1,6 @@
+#include <ArduinoJson.h>
+#include <ArduinoJson.hpp>
+
 #include <SoftwareSerial.h>
 
 #include <Keypad.h>
@@ -18,6 +21,7 @@ const int echo = 12;     // chân echo của HC-SR04
 #define txPin A3
 
 SoftwareSerial mySerial =  SoftwareSerial(rxPin, txPin);
+StaticJsonDocument<256> doc;
 
 int i = 0;
 int on = 0;
@@ -40,6 +44,8 @@ byte rowPins[ROWS] = {2,3,4,5}; // R1,R2,R3,R4
 byte colPins[COLS] = {6,7,8,9}; // C1,C2,C3,C4
 
 Keypad Mykeys = Keypad( makeKeymap(MatrixKey), rowPins, colPins, ROWS, COLS); 
+
+char text_input_json[] = "{\"state\":\"done\",\"warming\":\"no-warming\"}";
 
 void setup() {
   // put your setup code here, to run once:
@@ -64,6 +70,7 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
+  deserializeJson(doc, text_input_json);
   unsigned long duration; // biến đo thời gian
   int distance;           // biến lưu khoảng cách
   
@@ -135,6 +142,9 @@ void loop() {
         lcd.print("      Opened!");
         i=0;
         Serial.println(" Dung mat khau mo cua!");
+        doc["state"] = "OPEN";
+        doc["warming"] = "Warming close to door!";
+        serializeJson(doc, mySerial);
       }
       if(!strcmp(password,Off_equip)){
         lcd.clear();
@@ -145,6 +155,9 @@ void loop() {
         lcd.clear();
         lcd.print(" Enter Password");
         i=0;
+        doc["state"] = "CLOSE";
+        doc["warming"] = "No warming";
+        serializeJson(doc, mySerial);
       }
       if(strcmp(password,On_equip)){
         if(strcmp(password,Off_equip)){
@@ -159,6 +172,9 @@ void loop() {
           i = 0;
           Serial.println(" Sai mat khau nhap lai.............");
           digitalWrite(RedLed,1);
+          doc["state"] = "CLOSE";
+          doc["warming"] = "Stranger alert!";
+          serializeJson(doc, mySerial); 
         }
       }
       on=0;
@@ -175,5 +191,10 @@ void loop() {
     on = 0;
     lcd.setCursor(4,0);
     lcd.print("Closed!");
+    delay(2000);
+    
+    doc["state"] = "CLOSE";
+    doc["warming"] = "No warming!";
+    serializeJson(doc, mySerial);
   }
 }
