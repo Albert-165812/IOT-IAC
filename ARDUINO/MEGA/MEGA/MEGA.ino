@@ -203,28 +203,28 @@ void checkPass(){
 void check_data_recv(){
   if(Serial3.available()){
     String data = Serial3.readString();
-    if(data = "outside_light_on"){
+    if(data == "outside_light_on"){
       STATE_LIGHT_OUTSIDE = 1;
     }
-    if(data = "outside_light_off"){
+    if(data == "outside_light_off"){
       STATE_LIGHT_OUTSIDE = 0;
     }
-    if(data = "inside_light_on"){
+    if(data == "inside_light_on"){
       STATE_LIGHT_INSIDE = 1;
     }
-    if(data = "inside_light_off"){
+    if(data == "inside_light_off"){
       STATE_LIGHT_INSIDE = 0;
     }
-    if(data = "inside_fan_on"){
+    if(data == "inside_fan_on"){
       STATE_FAN_INSIDE = 1;
     }
-    if(data = "inside_fan_off"){
+    if(data == "inside_fan_off"){
       STATE_FAN_INSIDE = 0;
     }
-    if(data = "inside_curtain_on"){
+    if(data == "inside_curtain_on"){
       STATE_CURTAIN_INSIDE = 1;
     }
-    if(data = "inside_curtain_off"){
+    if(data == "inside_curtain_off"){
       STATE_CURTAIN_INSIDE = 0;
     }
   }

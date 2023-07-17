@@ -1,16 +1,16 @@
 {
     "outside":{
-        "light":1,
-        "temperature":11,
-        "humidity":11,
+        "light":0,
+        "temperature":36,
+        "humidity":30,
         "door":{
             "warming":"no-warming",
             "state":"CLOSE"
         }
     },
     "inside":{
-        "light":1,
-        "fan":1,
-        "curtain":1
+        "light":0,
+        "fan":0,
+        "curtain":0
     }
 }
