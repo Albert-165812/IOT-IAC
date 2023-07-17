@@ -49,14 +49,12 @@
             padding: 0.4rem 0;
             display: grid;
             grid-gap: 4px;
-            grid-template-rows: var(--row) 1fr var(--row) 1fr var(--row) 1fr;
+            grid-template-rows: var(--row) 1fr var(--row) 1fr;
             grid-template-areas: 
             "row_1 row_1 row_1"
             "col_11 col_12 col_13"
             "row_2 row_2 row_2"
-            "col_21 col_22 col_23"
-            "row_4 row_4 row_4"
-            "col_41 col_42 col_43";
+            "col_21 col_22 col_23";
         }
         .template_header_1{
             grid-area: row_1;
@@ -68,16 +66,6 @@
             background-color: bisque;
             border-radius: 16px;
         }
-        .template_header_3{
-            grid-area: row_3;
-            background-color: cadetblue;
-            border-radius: 16px;
-        }
-        .template_header_4{
-            grid-area: row_4;
-            background-color: aquamarine;
-            border-radius: 16px;
-        }
         .template_content_1 {
             grid-area: col_11;
         }
@@ -87,22 +75,27 @@
         .template_content_3 {
             grid-area: col_13;
         }
+        .template_content_1>.content_content,
+        .template_content_2>.content_content,
         .template_content_3>.content_content,
-        .template_content_6>.content_content,
-        .template_content_9>.content_content,
-        .template_content_12>.content_content {
+        .template_content_4>.content_content,
+        .template_content_5>.content_content,
+        .template_content_6>.content_content{
             width: 100%;
             height: calc(100% - 28px);
         }
+        .template_content_1>.content_content center,
+        .template_content_2>.content_content center,
         .template_content_3>.content_content center,
-        .template_content_6>.content_content center,
-        .template_content_9>.content_content center,
-        .template_content_12>.content_content center{
+        .template_content_4>.content_content center,
+        .template_content_5>.content_content center,
+        .template_content_6>.content_content center{
             width: 100%;
             height: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
         }
         .template_content_4 {
             grid-area: col_21;
@@ -112,24 +105,6 @@
         }
         .template_content_6 {
             grid-area: col_23;
-        }
-        .template_content_7 {
-            grid-area: col_31;
-        }
-        .template_content_8 {
-            grid-area: col_32;
-        }
-        .template_content_9 {
-            grid-area: col_33;
-        }
-        .template_content_10 {
-            grid-area: col_41;
-        }
-        .template_content_11 {
-            grid-area: col_42;
-        }
-        .template_content_12 {
-            grid-area: col_43;
         }
         .btn {
             padding: 8px 4px;
@@ -178,20 +153,23 @@
                 </span>
                 <div class="content_content">
                     <center>
-                        <div style="padding-top: 12px;"></div>
-                        <span>
-                            Trạng thái:
-                        </span>
-                        <span id="state_door">
-                            Đóng
-                        </span>
-                        <div style="padding-top: 12px;"></div>
-                        <span>
-                            Cảnh báo:
-                        </span>
-                        <span id="warming_door">
-                            An toàn
-                        </span>
+                        <div>
+                            <span>
+                                Trạng thái:
+                            </span>
+                            <span id="state_door">
+                                Đóng
+                            </span>
+                        </div>
+                        <br/>
+                        <div>
+                            <span>
+                                Cảnh báo:
+                            </span>
+                            <span id="warming_door">
+                                An toàn
+                            </span>
+                        </div>
                     </center>
                 </div>
             </div>
@@ -205,7 +183,7 @@
                     <center>
                         <div>
                             <span>
-                                Đèn 1:
+                                Đèn:
                             </span>
                             <span id="state_light_1">
                                 ON
@@ -214,20 +192,6 @@
                                 | Nhấn:
                             </span>
                             <div id="control_light_1" style="display: inline-block;" class="btn">
-                                OFF
-                            </div>
-                        </div>
-                        <div>
-                            <span>
-                                Đèn 2:
-                            </span>
-                            <span id="state_light_2">
-                                ON
-                            </span>
-                            <span>
-                                | Nhấn:
-                            </span>
-                            <div id="control_light_2" style="display: inline-block;" class="btn">
                                 OFF
                             </div>
                         </div>
@@ -304,26 +268,22 @@
                 </span>
                 <div class="content_content">
                     <center>
-                        <div style="padding-top: 12px;"></div>
-                        <span>
-                            Chế độ: 
-                        </span>
-                        <span id="state_mode_curtain_livingroom">
-                            Auto
-                        </span>
-                        <div style="padding-top: 12px;"></div>
-                        <span>
-                            Trạng thái:
-                        </span>
-                        <span id="state_curtain_livingroom">
-                            OFF
-                        </span>
-                        <div style="padding-top: 8px;"></div>
-                        <span>
-                            Nhấn:
-                        </span>
-                        <div id="control_curtain_livingroom" style="display: inline-block;" class="btn">
-                            OFF
+                        <div>
+                            <span>
+                                Trạng thái:
+                            </span>
+                            <span id="state_curtain_livingroom">
+                                OFF
+                            </span>
+                        </div>
+                        <br/>
+                        <div>
+                            <span>
+                                Nhấn:
+                            </span>
+                            <div id="control_curtain_livingroom" style="display: inline-block;" class="btn">
+                                OFF
+                            </div>
                         </div>
                     </center>
                 </div>
@@ -331,7 +291,7 @@
             <div class="template_content_6">
                 <span class="content_title">
                     <center style="font-size: 20px; padding: 4px 0">
-                        Quạt và Máy lạnh
+                        Quạt
                     </center>
                 </span>
                 <div class="content_content">
@@ -341,88 +301,6 @@
                             <span id="state_fan_livingroom">OFF</span>
                             <span>| Nhấn:</span>
                             <div class="btn" id="control_fan_livingroom" style="display: inline-block;">ON</div>
-                        </div>
-                        <div>
-                            <span> Máy lạnh: </span>
-                            <span id="state_air-conditioner_livingroom">OFF</span>
-                            <span>| Nhấn:</span>
-                            <div class="btn" id="control_air-conditioner_livingroom" style="display: inline-block;">ON</div>
-                        </div>
-                    </center>
-                </div>
-            </div>
-            <div class="template_header_4">
-                <h3 style="height: 100%; width:100%;">
-                    <center style="height: 100%; line-height: var(--row); font-size: 1.4rem;">
-                        Phòng ăn
-                    </center>
-                </h3>
-            </div>
-            <div class="template_content_10">
-                <span class="content_title">
-                    <center style="font-size: 20px; padding: 4px 0">
-                        Đèn
-                    </center>
-                </span>
-                <div class="content_content">
-                    <center>
-                        <div>
-                            <span>
-                                Đèn:
-                            </span>
-                            <span id="state_light_kitchen">
-                                ON
-                            </span>
-                            <span>
-                                | Nhấn:
-                            </span>
-                            <div id="control_light_kitchen" style="display: inline-block;" class="btn">
-                                OFF
-                            </div>
-                        </div>
-                    </center>
-                </div>
-            </div>
-            <div class="template_content_11">
-                <span class="content_title">
-                    <center style="font-size: 20px; padding: 4px 0">
-                        Quạt
-                    </center>
-                </span>
-                <div class="content_content">
-                    <center>
-                        <span> Quạt: </span>
-                        <span id="state_fan_kitchen">OFF</span>
-                        <span>| Nhấn:</span>
-                        <div class="btn" id="control_fan_kitchen" style="display: inline-block;">ON</div>
-                    </center>
-                </div>
-            </div>
-            <div class="template_content_12">
-                <span class="content_title">
-                    <center style="font-size: 20px; padding: 4px 0">
-                        Nhiệt độ & Gas
-                    </center>
-                </span>
-                <div class="content_content">
-                    <center style="flex-direction: column;">
-                        <div>
-                            <span>Nhiệt độ: </span>
-                            <span id="temperature_kitchen">20</span>
-                            <span style="width:4px"></span>
-                            <span>oC</span>
-                        </div>
-                        <div style="padding-top: 12px;"></div>
-                        <div>
-                            <span>Gas: </span>
-                            <span id="gas_kitchen">40</span>
-                            <span style="width:4px"></span>
-                            <span>%</span>
-                            <div style="padding-top: 12px;"></div>
-                            <span>
-                                TT Quạt Gas:
-                            </span>
-                            <span id="state_gas_kitchen">OFF</span>
                         </div>
                     </center>
                 </div>
@@ -445,6 +323,42 @@
             xhr.onload = function() {
                 if (xhr.status === 200) {
                     var response = JSON.parse(JSON.stringify(xhr.responseText));
+                    document.getElementById("state_door").innerHTML = response["outside"]["door"]["state"];
+                    document.getElementById("warming_door").innerHTML = response["outside"]["door"]["warming"];
+                    if(response["outside"]["light"] == 1){
+                        document.getElementById("state_light_1").innerHTML = "ON";
+                        document.getElementById("control_light_1").innerHTML = "OFF";
+                    }
+                    else{
+                        document.getElementById("state_light_1").innerHTML = "OFF";
+                        document.getElementById("control_light_1").innerHTML = "ON";
+                    }
+                    document.getElementById("temperature").innerHTML = response["outside"]["temperature"];
+                    document.getElementById("humidity").innerHTML = response["outside"]["humidity"];
+                    if(response["inside"]["light"] == 1){
+                        document.getElementById("state_light_livingroom").innerHTML = "ON";
+                        document.getElementById("state_light_livingroom").innerHTML = "OFF";
+                    }
+                    else{
+                        document.getElementById("state_light_livingroom").innerHTML = "OFF";
+                        document.getElementById("state_light_livingroom").innerHTML = "ON";
+                    }
+                    if(response["inside"]["fan"] == 1){
+                        document.getElementById("state_fan_livingroom").innerHTML = "ON";
+                        document.getElementById("state_fan_livingroom").innerHTML = "OFF";
+                    }
+                    else{
+                        document.getElementById("state_fan_livingroom").innerHTML = "OFF";
+                        document.getElementById("state_fan_livingroom").innerHTML = "ON";
+                    }
+                    if(response["inside"]["curtain"] == 1){
+                        document.getElementById("state_curtain_livingroom").innerHTML = "ON";
+                        document.getElementById("state_curtain_livingroom").innerHTML = "OFF";
+                    }
+                    else{
+                        document.getElementById("state_curtain_livingroom").innerHTML = "OFF";
+                        document.getElementById("state_curtain_livingroom").innerHTML = "ON";
+                    }
                     console.log(response);
                 } else {
                     console.log('Request failed. Status:', xhr.status);
@@ -455,40 +369,29 @@
             };
             xhr.send();
         }
-        var interval = setInterval(sendRequest, 8000);
+        var interval = setInterval(sendRequest, 5000);
 
         document.getElementById("control_light_1").addEventListener("click",()=>{
             (document.getElementById("control_light_1").innerText == "OFF") ?
-            control("control/outside/light_1/ON") : control("control/outside/light_1/OFF");
-        })
-        document.getElementById("control_light_2").addEventListener("click",()=>{
-            (document.getElementById("control_light_2").innerText == "OFF") ?
-            control("control/outside/light_2/ON") : control("control/outside/light_2/OFF");
+            control("control/outside/light/on") : control("control/outside/light/off");
+            console.log("control_light_outside")
         })
         document.getElementById("control_light_livingroom").addEventListener("click",()=>{
             (document.getElementById("control_light_livingroom").innerText == "OFF") ?
-            control("control/livingroom/light/ON") : control("control/livingroom/light/OFF");
-        })
-        document.getElementById("control_curtain_livingroom").addEventListener("click",()=>{
-            (document.getElementById("control_curtain_livingroom").innerText == "OFF") ?
-            control("control/livingroom/curtain/ON") : control("control/livingroom/curtain/OFF");
+            control("control/inside/light/on") : control("control/inside/light/off");
+            console.log("control_light_livingroom")
         })
         document.getElementById("control_fan_livingroom").addEventListener("click",()=>{
             (document.getElementById("control_fan_livingroom").innerText == "OFF") ?
-            control("control/livingroom/fan/ON") : control("control/livingroom/fan/OFF");
+            control("control/inside/fan/on") : control("control/inside/fan/off");
+            console.log("control_fan_livingroom")
         })
-        document.getElementById("control_air-conditioner_livingroom").addEventListener("click",()=>{
-            (document.getElementById("control_air-conditioner_livingroom").innerText == "OFF") ?
-            control("control/livingroom/air_conditioner/ON") : control("control/livingroom/air_conditioner/OFF");
+        document.getElementById("control_curtain_livingroom").addEventListener("click",()=>{
+            (document.getElementById("control_curtain_livingroom").innerText == "OFF") ?
+            control("control/inside/curtain/on") : control("control/inside/curtain/off");
+            console.log("control_curtain_livingroom")
         })
-        document.getElementById("control_light_kitchen").addEventListener("click",()=>{
-            (document.getElementById("control_light_kitchen").innerText == "OFF") ?
-            control("control/kitchen/light/ON") : control("control/kitchen/light/OFF");
-        })
-        document.getElementById("control_fan_kitchen").addEventListener("click",()=>{
-            (document.getElementById("control_fan_kitchen").innerText == "OFF") ?
-            control("control/kitchen/fan/ON") : control("control/kitchen/fan/OFF");
-        })
+
         var control = (adrr)=>{
             let URL = window.location
             var xhr = new XMLHttpRequest();

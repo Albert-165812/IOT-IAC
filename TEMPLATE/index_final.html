@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhà Thông Minh</title>
+</head>
+<body>
+    <style>
+        *,
+        *:before,
+        *:after {
+        box-sizing: border-box;
+        }
+        * {
+        margin: 0;
+        padding: 0;
+        font: inherit;
+        }
+        img,
+        picture,
+        svg,
+        video {
+        display: block;
+        max-width: 100%;
+        }
+        input,
+        select,
+        textarea {
+        background-color: transparent;
+        outline: none;
+        }
+        button {
+        cursor: pointer;
+        background-color: transparent;
+        outline: none;
+        border: 0;
+        }
+        body {
+        min-height: 100vh;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 1;
+        }
+        main{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        head,
+        footer{
+            height: 10vh;
+        }
+        #container{
+            --row : 48px;
+            flex-grow: 1;
+            display: grid;
+            grid-gap: 4px;
+            grid-template-rows: var(--row) 1fr var(--row) 1fr;
+            grid-template-areas: 
+            "row_1 row_1 row_1"
+            "col_11 col_12 col_13"
+            "row_2 row_2 row_2"
+            "col_21 col_22 col_23";
+        }
+        #box{
+
+        }
+    </style>
+    <main>
+        <head>
+            <h2>
+                <center style="padding:  1rem 0; font-size: 1.4rem; font-weight:bold">
+                    Nhà thông minh
+                </center>
+            </h2>
+        </head>
+        <div id="container">
+            
+        </div>
+        <footer>
+            <span>
+                <center>
+                    Design by: IAC
+                </center>
+            </span>
+        </footer>
+    </main>
+</body>
+</html>

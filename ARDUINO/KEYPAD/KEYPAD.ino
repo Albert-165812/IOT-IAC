@@ -6,7 +6,7 @@
 #include <Keypad.h>
 #include <Servo.h> 
 #include <Wire.h>
-#include <LiquidCrystal_I2C.h>      // Khai báo thư viện LCD sử dụng I2C
+#include <LiquidCrystal_I2C.h>
 
 LiquidCrystal_I2C lcd(0x27, 16, 2); // 0x27 địa chỉ LCD, 16 cột và 2 hàng
 Servo myservo; //Tạo biến myServo của loại Servo
