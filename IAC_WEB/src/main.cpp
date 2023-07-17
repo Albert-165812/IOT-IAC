@@ -27,7 +27,7 @@ void control_kitchen_gas_fan_off();
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(115200);
-  
+  mySerial.begin(9600);
   pinMode (light_outside_1, OUTPUT);
   pinMode (light_outside_2, OUTPUT);
   pinMode (dht11_outside, INPUT);

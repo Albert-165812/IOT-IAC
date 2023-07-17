@@ -23,6 +23,11 @@ const int echo = 12;     // chân echo của HC-SR04
 SoftwareSerial mySerial =  SoftwareSerial(rxPin, txPin);
 StaticJsonDocument<256> doc;
 
+unsigned long previousMillis = 0;
+const unsigned long interval = 5000; // Thời gian delay 1000 milliseconds (1 giây)
+
+int state_check = 0;
+
 int i = 0;
 int on = 0;
 int countClr = 0;
@@ -64,13 +69,14 @@ void setup() {
   lcd.backlight(); // Bật đèn màn hình Màn hình
 
   myservo.attach(servo); 
-  myservo.write (0);
+  myservo.write (120);
 
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
   deserializeJson(doc, text_input_json);
+  unsigned long currentMillis = millis();
   unsigned long duration; // biến đo thời gian
   int distance;           // biến lưu khoảng cách
   
@@ -87,7 +93,12 @@ void loop() {
   // Tính khoảng cách đến vật.
   distance = int(duration/2/29.412); // khoảng cách cm
   char EnterKey = Mykeys.getKey();
-  if(distance < 30){
+  if (currentMillis - previousMillis >= interval) {
+    previousMillis = currentMillis;
+    (distance < 1189) ? state_check = 1 : state_check  = 0;
+    Serial.println(distance);
+  }
+  if(state_check == 1){
     if(i == 0){
       lcd.setCursor(1,0);
       lcd.print("Enter Password");
@@ -148,7 +159,7 @@ void loop() {
       }
       if(!strcmp(password,Off_equip)){
         lcd.clear();
-        myservo.write(0); // Đóng cửa 
+        myservo.write(120); // Đóng cửa 
         lcd.print("     Closed!");
         digitalWrite(RedLed,0);
         delay(2000);
@@ -182,19 +193,19 @@ void loop() {
     countClr = 0;
   }
   else{
-    myservo.write(0); // Đóng cửa 
     if(countClr == 0){
       lcd.clear();
       countClr++;
     } 
-    i = 0;
-    on = 0;
-    lcd.setCursor(4,0);
-    lcd.print("Closed!");
-    delay(2000);
+      // myservo.write(120); // Đóng cửa 
+    // i = 0;
+    // on = 0;
+    // lcd.setCursor(4,0);
+    // lcd.print("Closed!");
+    // delay(2000);
     
-    doc["state"] = "CLOSE";
-    doc["warming"] = "No warming!";
-    serializeJson(doc, mySerial);
+    // doc["state"] = "CLOSE";
+    // doc["warming"] = "No warming!";
+    // serializeJson(doc, mySerial);
   }
 }
